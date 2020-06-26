@@ -82,7 +82,7 @@ public class CharacterController2D : MonoBehaviour
             // If crouching
             if (crouch)
             {
-                if (!m_wasCrouching)
+                if (!m_wasCrouching && m_Grounded == true)
                 {
                     m_wasCrouching = true;
                     OnCrouchEvent.Invoke(true);

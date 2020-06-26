@@ -13,6 +13,8 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
+    public GameObject head;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,15 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (crouch == false)
+        {
+            head.SetActive(true);
+        }
+        else
+        {
+            head.SetActive(false);
+        }
+
         horiontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         
         //print(horiontalMove);
