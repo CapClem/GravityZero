@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -1641,7 +1641,7 @@ TilemapCollider2D:
   m_GameObject: {fileID: 1293318491}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: e1dc8bb2440e50244b132dfa447cdcd7, type: 2}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -1715,7 +1715,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3639213280005381982, guid: da059ee5e0914da49a454619562add14, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: da059ee5e0914da49a454619562add14, type: 3}
 --- !u!4 &1835777165 stripped
 Transform:
