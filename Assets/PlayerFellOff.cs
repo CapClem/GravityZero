@@ -18,7 +18,7 @@ public class PlayerFellOff : MonoBehaviour
     {
         // set player possition for reset
         startPos = this.gameObject.transform.position;
-        print(startPos);
+        //print(startPos);
     }
 
     // Update is called once per frame
