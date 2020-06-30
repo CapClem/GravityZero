@@ -680,6 +680,9 @@
  <Reference Include="Unity.2D.Animation.Triangle.Runtime">
  <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/Unity.2D.Animation.Triangle.Runtime.dll</HintPath>
  </Reference>
+ <Reference Include="PsdPlugin">
+ <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/PsdPlugin.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
  <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
@@ -694,6 +697,9 @@
  </Reference>
  <Reference Include="Unity.Mathematics">
  <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/Unity.Mathematics.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.Psdimporter.Editor">
+ <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/Unity.2D.Psdimporter.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.InternalAPIEngineBridge.001">
  <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/Unity.InternalAPIEngineBridge.001.dll</HintPath>
