@@ -30,34 +30,43 @@ public class PlayerMovement : MonoBehaviour
     {
         if (crouch == false)
         {
-            //head.SetActive(true);
-            ani.SetBool("Crouch", false);            
+            //head.SetActive(true);           
         }
-        else
+        
         {
             //head.SetActive(false);
-            ani.SetBool("Crouch", true);
-            print("Set To Crouching");
         }
 
         horiontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         
+        if (Input.GetAxisRaw("Horizontal") != 0)
+        {
+            ani.SetBool("Walking", true);
+        }
+        else
+        {
+            ani.SetBool("Walking", false);
+        }
+
         //print(horiontalMove);
 
-        if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump"))
         {
             jump = true;
             print("You have jumped, "+ jump);
+            ani.SetBool("Jump", true);
         }
 
         if (Input.GetButtonDown("Crouch"))
         {
             crouch = true;
             print("You are crouching");
+            ani.SetBool("Crouch", true);
         }
         else if (Input.GetButtonUp("Crouch"))
         {
             crouch = false;
+            ani.SetBool("Crouch", false);
         }
 
     }
@@ -66,6 +75,7 @@ public class PlayerMovement : MonoBehaviour
     {
         contoller.Move(horiontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
+        ani.SetBool("Jump", false);
     }
 
 
