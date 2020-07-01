@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerMovement : MonoBehaviour
 {
     public CharacterController2D contoller;
@@ -15,11 +16,13 @@ public class PlayerMovement : MonoBehaviour
 
     public GameObject head;
 
+    Animator ani;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        ani = this.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,11 +30,14 @@ public class PlayerMovement : MonoBehaviour
     {
         if (crouch == false)
         {
-            head.SetActive(true);
+            //head.SetActive(true);
+            ani.SetBool("Crouch", false);            
         }
         else
         {
-            head.SetActive(false);
+            //head.SetActive(false);
+            ani.SetBool("Crouch", true);
+            print("Set To Crouching");
         }
 
         horiontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
