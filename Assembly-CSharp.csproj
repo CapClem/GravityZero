@@ -625,6 +625,12 @@
  <Reference Include="Unity.TextMeshPro.Editor">
  <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
+ <Reference Include="Unity.2D.IK.Editor">
+ <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/Unity.2D.IK.Editor.dll</HintPath>
+ </Reference>
+ <Reference Include="Unity.2D.IK.Runtime">
+ <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/Unity.2D.IK.Runtime.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.RenderPipelines.Universal.Runtime">
  <HintPath>C:/Users/Karl/Desktop/GravityZero/Library/ScriptAssemblies/Unity.RenderPipelines.Universal.Runtime.dll</HintPath>
  </Reference>
