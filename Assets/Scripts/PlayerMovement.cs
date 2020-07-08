@@ -14,10 +14,11 @@ public class PlayerMovement : MonoBehaviour
     bool jump = false;
     bool crouch = false;
 
+    bool canUseJetpack = false;
+
     public GameObject head;
 
     Animator ani;
-
 
     // Start is called before the first frame update
     void Start()
@@ -28,14 +29,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*  
         if (crouch == false)
-        {
-            //head.SetActive(true);           
-        }
-        
-        {
-            //head.SetActive(false);
-        }
+          {
+              head.SetActive(true);           
+          }
+          else
+          {
+              //head.SetActive(false);
+          }
+        */
 
         horiontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
         
@@ -50,11 +53,19 @@ public class PlayerMovement : MonoBehaviour
 
         //print(horiontalMove);
 
-            if (Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            jump = true;
-            print("You have jumped, "+ jump);
-            ani.SetBool("Jump", true);
+            if (canUseJetpack == true)
+            {
+
+            }
+            else
+            {
+                jump = true;
+                print("You have jumped, " + jump);
+                ani.SetBool("Jump", true);
+                //canUseJetpack = true;
+            }            
         }
 
         if (Input.GetButtonDown("Crouch"))
@@ -68,7 +79,6 @@ public class PlayerMovement : MonoBehaviour
             crouch = false;
             ani.SetBool("Crouch", false);
         }
-
     }
 
     void FixedUpdate ()
@@ -78,5 +88,11 @@ public class PlayerMovement : MonoBehaviour
         ani.SetBool("Jump", false);
     }
 
+    //Ref https://www.youtube.com/watch?v=c3iEl5AwUF8
+    // determins if the player is on the ground or not
+    /*private bool IsGrounded()
+    {
 
+    }
+    */
 }
