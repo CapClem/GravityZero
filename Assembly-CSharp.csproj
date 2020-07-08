@@ -57,10 +57,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scenes\ButtonFunctions.cs" />
+    <Compile Include="Assets\Scripts\ButtonFunctions.cs" />
     <Compile Include="Assets\Scripts\CharacterController2D.cs" />
     <Compile Include="Assets\Scripts\F_Test.cs" />
-    <Compile Include="Assets\Scripts\GravityAdjustments.cs" />
     <Compile Include="Assets\Scripts\Paralax.cs" />
     <Compile Include="Assets\Scripts\PlayerFellOff.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
