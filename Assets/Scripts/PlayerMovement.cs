@@ -22,11 +22,15 @@ public class PlayerMovement : MonoBehaviour
     public Collider2D boxCollider2D;
 
     Animator ani;
-        
+
+    public float propelSpeed = 1f;
+    public Rigidbody2D rb;
+
     // Start is called before the first frame update
     void Start()
     {
         ani = this.GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -56,14 +60,20 @@ public class PlayerMovement : MonoBehaviour
 
         //print(horiontalMove);
 
-        if (IsGrounded() && Input.GetButtonDown("Jump"))
+        if (Input.GetButtonDown("Jump"))
         {
-            
-             jump = true;
-             print("You have jumped, " + jump);
-             ani.SetBool("Jump", true);
-             //canUseJetpack = true;
-                  
+            if (IsGrounded())
+            {
+                jump = true;
+                print("You have jumped, " + jump);
+                ani.SetBool("Jump", true);
+                //canUseJetpack = true;
+            }
+            else
+            {
+                UseJetpack();
+            }
+
         }
 
         if (Input.GetButtonDown("Crouch"))
@@ -108,6 +118,14 @@ public class PlayerMovement : MonoBehaviour
         Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
     
+    }
+
+
+
+    //use jeckpack
+    void UseJetpack()
+    {
+        rb.AddForce(transform.up * propelSpeed);
     }
     
 }
