@@ -6,25 +6,24 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField] private LayerMask playformLayerMask;
 
+    //target the movement script
     public CharacterController2D contoller;
-    //targer the movement script
 
+    //movement stats
     float horiontalMove = 0f;
     public float runSpeed = 40f;
 
-    bool jump = false;
-    bool crouch = false;
-
-    bool canUseJetpack = false;
-
-    public GameObject head;
+    //is the player?
+    private bool jump = false;
+    private bool crouch = false;
 
     public Collider2D boxCollider2D;
 
     Animator ani;
 
-    public float propelSpeed = 1f;
-    public Rigidbody2D rb;
+    public float propelSpeed = 10f;
+    private Rigidbody2D rb;
+    private bool useJetpack = false;
 
     // Start is called before the first frame update
     void Start()
@@ -36,19 +35,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        /*  
-        if (crouch == false)
-          {
-              head.SetActive(true);           
-          }
-          else
-          {
-              //head.SetActive(false);
-          }
-        */
-
         horiontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
-        
+
         if (Input.GetAxisRaw("Horizontal") != 0)
         {
             ani.SetBool("Walking", true);
@@ -58,8 +46,7 @@ public class PlayerMovement : MonoBehaviour
             ani.SetBool("Walking", false);
         }
 
-        //print(horiontalMove);
-
+        //jump & Jectpack
         if (Input.GetButtonDown("Jump"))
         {
             if (IsGrounded())
@@ -71,11 +58,17 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                UseJetpack();
+                useJetpack = true;
             }
-
         }
 
+        //stop using the jetpack
+        if (Input.GetButtonUp("Jump"))
+        {
+            useJetpack = false;
+        }
+
+        //crouch
         if (Input.GetButtonDown("Crouch"))
         {
             crouch = true;
@@ -89,11 +82,22 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    void FixedUpdate ()
+    void FixedUpdate()
     {
         contoller.Move(horiontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
         ani.SetBool("Jump", false);
+
+        if (useJetpack == true)
+        {
+            rb.AddForce(transform.up * propelSpeed);
+            print("You are using the jetpack");
+        }
+
+        if (IsGrounded())
+        {
+            useJetpack = false;
+        }
     }
 
     //Ref https://www.youtube.com/watch?v=c3iEl5AwUF8
@@ -117,15 +121,5 @@ public class PlayerMovement : MonoBehaviour
         Debug.DrawRay(boxCollider2D.bounds.center - new Vector3(boxCollider2D.bounds.extents.x, boxCollider2D.bounds.extents.y + extraHeightText), Vector2.right * 2 * (boxCollider2D.bounds.extents.x), rayColor);
         Debug.Log(raycastHit.collider);
         return raycastHit.collider != null;
-    
     }
-
-
-
-    //use jeckpack
-    void UseJetpack()
-    {
-        rb.AddForce(transform.up * propelSpeed);
-    }
-    
 }
